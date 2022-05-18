@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         val zaznNiewidzialnosci = findViewById<CheckBox>(R.id.NiewidzialnoscCheckBox)
         val zaznPrzezroczystosci = findViewById<CheckBox>(R.id.Przezroczystosc)
         val wartoscPrzezroczystosci = findViewById<EditText>(R.id.WartoscPrzezroczystosci)
+        val przeroczystoscButton = findViewById<Button>(R.id.ButtonPrzezroczystosc)
 
         poprzedniButton.setOnClickListener {
             obraz -= 1
@@ -106,6 +107,11 @@ class MainActivity : AppCompatActivity() {
 
         zaznPrzezroczystosci.setOnClickListener {
             wartoscPrzezroczystosci.isEnabled = zaznPrzezroczystosci.isChecked
+        }
+
+        przeroczystoscButton.setOnClickListener {
+            val przezroczystoscLiczba = wartoscPrzezroczystosci.text.toString().toFloat()
+            obrazekid.alpha = przezroczystoscLiczba
         }
     }
 }
