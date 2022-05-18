@@ -2,9 +2,12 @@ package com.example.zadanienaocene18maj2022
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isInvisible
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         val nastButton = findViewById<Button>(R.id.nastepny)
         val obrazekid = findViewById<ImageView>(R.id.Obrazki)
         var obraz = 1
+        val zaznNiewidzialnosci = findViewById<CheckBox>(R.id.NiewidzialnoscCheckBox)
         poprzedniButton.setOnClickListener {
             obraz -= 1
             when(obraz)
@@ -52,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         nastButton.setOnClickListener {
             obraz += 1
             when(obraz)
@@ -87,6 +92,16 @@ class MainActivity : AppCompatActivity() {
                     obrazekid.setImageResource(R.drawable.pies1)
                     nrObrazka.text = "1";
                 }
+            }
+        }
+
+        zaznNiewidzialnosci.setOnClickListener {
+            if(zaznNiewidzialnosci.isChecked)
+            {
+                obrazekid.visibility = View.INVISIBLE
+            }
+            else{
+                obrazekid.visibility = View.VISIBLE
             }
         }
     }
