@@ -3,11 +3,7 @@ package com.example.zadanienaocene18maj2022
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.view.isInvisible
+import android.widget.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         val obrazekid = findViewById<ImageView>(R.id.Obrazki)
         var obraz = 1
         val zaznNiewidzialnosci = findViewById<CheckBox>(R.id.NiewidzialnoscCheckBox)
+        val zaznPrzezroczystosci = findViewById<CheckBox>(R.id.Przezroczystosc)
+        val wartoscPrzezroczystosci = findViewById<EditText>(R.id.WartoscPrzezroczystosci)
+
         poprzedniButton.setOnClickListener {
             obraz -= 1
             when(obraz)
@@ -27,32 +26,32 @@ class MainActivity : AppCompatActivity() {
                     {
                         obraz = 5
                         obrazekid.setImageResource(R.drawable.pies5)
-                        nrObrazka.text = "5";
+                        nrObrazka.text = "5"
                     }
                 1 -> {
                     obrazekid.setImageResource(R.drawable.pies1)
-                    nrObrazka.text = "1";
-                    }
+                    nrObrazka.text = "1"
+                }
                 2 -> {
                     obrazekid.setImageResource(R.drawable.pies2)
-                    nrObrazka.text = "2";
+                    nrObrazka.text = "2"
                 }
                 3 -> {
                     obrazekid.setImageResource(R.drawable.pies3)
-                    nrObrazka.text = "3";
+                    nrObrazka.text = "3"
                 }
                 4 -> {
                     obrazekid.setImageResource(R.drawable.pies4)
-                    nrObrazka.text = "4";
+                    nrObrazka.text = "4"
                 }
                 5 -> {
                     obrazekid.setImageResource(R.drawable.pies5)
-                    nrObrazka.text = "5";
+                    nrObrazka.text = "5"
                 }
                 6 -> {
                     obraz = 1
                     obrazekid.setImageResource(R.drawable.pies1)
-                    nrObrazka.text = "1";
+                    nrObrazka.text = "1"
                 }
             }
         }
@@ -64,33 +63,33 @@ class MainActivity : AppCompatActivity() {
                 0 -> {
                     obraz = 5
                     obrazekid.setImageResource(R.drawable.pies5)
-                    nrObrazka.text = "5";
+                    nrObrazka.text = "5"
                 }
 
                 1 -> {
                     obrazekid.setImageResource(R.drawable.pies1)
-                    nrObrazka.text = "1";
+                    nrObrazka.text = "1"
                 }
                 2 -> {
                     obrazekid.setImageResource(R.drawable.pies2)
-                    nrObrazka.text = "2";
+                    nrObrazka.text = "2"
                 }
                 3 -> {
                     obrazekid.setImageResource(R.drawable.pies3)
-                    nrObrazka.text = "3";
+                    nrObrazka.text = "3"
                 }
                 4 -> {
                     obrazekid.setImageResource(R.drawable.pies4)
-                    nrObrazka.text = "4";
+                    nrObrazka.text = "4"
                 }
                 5 -> {
                     obrazekid.setImageResource(R.drawable.pies5)
-                    nrObrazka.text = "5";
+                    nrObrazka.text = "5"
                 }
                 6 -> {
                     obraz = 1
                     obrazekid.setImageResource(R.drawable.pies1)
-                    nrObrazka.text = "1";
+                    nrObrazka.text = "1"
                 }
             }
         }
@@ -103,6 +102,10 @@ class MainActivity : AppCompatActivity() {
             else{
                 obrazekid.visibility = View.VISIBLE
             }
+        }
+
+        zaznPrzezroczystosci.setOnClickListener {
+            wartoscPrzezroczystosci.isEnabled = zaznPrzezroczystosci.isChecked
         }
     }
 }
